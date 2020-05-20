@@ -25,6 +25,13 @@
                         <%= i.phone %>
                     </div>
                    
+                    <div class="delete_button">
+                        <!-- <a href="/delete-contact/<%=i.phone%> " > -->
+                        <!-- <a href="/delete-contact/?phone=<%=i.phone%>&name= <%=i.name%> " > -->
+                            <a href="/delete-contact/?phone=<%= i.phone%>"  >
+                                <i class="fas fa-window-close"> </i>
+                            </a>
+                    </div>
                     
                 </li>
                 <% } %>
