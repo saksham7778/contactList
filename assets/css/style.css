@@ -1,0 +1,69 @@
+.outer{
+	margin: 1%;
+	/* border:2px solid black; */
+}
+
+#formm{
+	/*margin-left: 10%;*/
+	margin: 3%;
+	/* border:2px solid black; */
+	text-align: center;
+}
+
+#email-label{
+	padding: 2rem;
+	/*padding-left: 45%;*/
+}
+
+#number-label{
+	padding: 2rem;
+}
+
+#submit-button{
+	margin-left: 5rem;
+}
+
+#page-heading{
+	text-align: center;
+	padding: 1%;
+	/* border:2px solid black; */
+}
+
+
+#form-div{
+	margin-left: 10%;
+}
+
+#span-name{
+	/* margin-left: 10%; */
+	font-size: 2rem;
+	font-family: cursive;
+}
+
+#span-number{
+	margin-left: 10%;
+	font-size: medium;
+	font-family: cursive;
+	
+}
+
+body{height:100%;
+	width:100%;
+	background-image:url("../../images/bg4.jpg");
+	background-repeat:no-repeat;/*we want to have one single image not a repeated one*/  
+	background-size:cover;/*this sets the image to fullscreen covering the whole screen*/  
+	/*css hack for ie*/     
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.image.jpg',sizingMethod='scale');
+	-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='image.jpg',sizingMethod='scale')";
+	background-attachment: fixed;
+
+ }
+
+ li:hover{
+	 background-color: #f5f6f7;
+ }
+
+ #delete-option:hover{
+	 border-radius: 50%;
+	 background-color: #f5f6f7;
+ }

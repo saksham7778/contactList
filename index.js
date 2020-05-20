@@ -13,7 +13,8 @@ app.set('views' , path.join(__dirname,'views'));
 app.use(express.urlencoded());
 //middleware 2  ==> for styling
 app.use(express.static('assets'));
-
+// to get images of users
+app.use(express.static('public'));
 
 app.get('/',function(request,response){
 

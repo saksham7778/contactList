@@ -3,51 +3,91 @@
         <title>
             <%= locals.title %>
         </title>
-
-        <link rel="stylesheet" href="/css/home.css">
-
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    	<link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
 
-    <body>
-
+    <body >
+    
+    <div class="w3-container outer">
         <h1 id ="page-heading">
             <i class="fas fa-address-book" ></i>
-            My Contacts List 
+            My Contacts List
         </h1>
 
-        <div id="contact_list_container">
-            <ul>
+        <div id="form-div">
+    	
+            <form class="form-inline" id="formm" action="/create-contact" method="POST"  >
+            <div class="form-group">
+                <label for="email" id="email-label"><b>NAME:</b></label>
+                <input class="form-control" id="email" type="text" name="name" placeholder="Enter your name .." required>
+                <!-- <input type="email" class="form-control" id="email"> -->
+            </div>
+    
+            <div class="form-group">
+                <label for="pwd" id="number-label"><b>CONTACT NUMBER: </b></label>
+                <input class="form-control" id="pwd" type="tel" id="phone" name="phone" placeholder="Enter your phone number  .." pattern="[0-9]{10}" required>
+                <br>
+                <div style="display:block;">Format: 9876543210</div>
+
+                <!-- <input class="form-control" id="pwd" type="text" name="phone" placeholder="Please enter your phone number  .." required> -->
+            </div>
+            <br>
+            <!-- <button type="submit" class="btn btn-default"> Add Contact !</button> -->
+            
+            <button type="submit" class="btn btn-success" id="submit-button"> Submit</button>
+            </form>
+    
+        </div>
+      
+
+
+        <div>
+
+            <ul class="w3-ul " style="width: 60%;margin-left: 20%;">
+                
                 <% for(let i of contact_list ){ %>
-                   
-                <li class="contact">
-                    <div class="details">
-                        <%= i.name  %> 
-                        <%= i.phone %>
-                    </div>
-                   
-                    <div class="delete_button">
-                        <!-- <a href="/delete-contact/<%=i.phone%> " > -->
-                        <!-- <a href="/delete-contact/?phone=<%=i.phone%>&name= <%=i.name%> " > -->
-                            <a href="/delete-contact/?id=<%= i._id%>"  >
-                                <i class="fas fa-window-close"> </i>
-                            </a>
-                    </div>
+                <li class="w3-bar w3-card-4 w3-hoverable" style="margin-bottom: 2.5%;">
+                  <span class="w3-bar-item w3-button w3-xlarge w3-right " id="delete-option" style="margin-top:2%;margin-right: 5%;">
+                    <a href="/delete-contact/?id=<%= i._id%>" >
+                        <i class="fas fa-window-close"  style="color:red;border: 3px solid white;border-radius: 20%;"> </i>
+                    </a>
+
                     
+                  </span>
+                  <img  src="../images/avatar.jpg" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+                  <div class="w3-bar-item">
+                    <span id="span-name">      <b><%= i.name  %></b>   </span><br>
+                    <span id="span-number">    <%= i.phone %>    </span>
+                  </div>
                 </li>
                 <% } %>
             </ul>
+
+
         </div>
-
-        <form action="/create-contact" method="POST"  id="form">
+       
+        <!-- <form action="/create-contact" method="POST"  id="form">
             <input id="name_id" type="text" name="name" placeholder="Please enter your name .." required>
-
+            
             <input id="phone_id" type="text" name="phone" placeholder="Please enter your phone number  .." required>
-
+           
             <button type="submit"> Add Contact !</button>
-        </form>
+        </form> -->
 
-        <script src="https://kit.fontawesome.com/8ebe567dde.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="/js/home.js " > </script>
+    </div>
+    <!-- ################################################## BOOTSTRAP ##################################################  -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- ################################################## FONTAWESOME ##################################################  -->
+    <script src="https://kit.fontawesome.com/8ebe567dde.js" crossorigin="anonymous"></script>
+        
+    <!-- ################################################## OWN ##################################################  -->    
+    <script type="text/javascript" src="/js/home.js " > </script>
     </body>
 
 </html>
