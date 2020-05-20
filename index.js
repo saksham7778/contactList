@@ -18,9 +18,16 @@ app.use(express.static('assets'));
 app.get('/',function(request,response){
 
     // console.log(request.url);
-    return response.render('home',{
-        title: "Contact List!",
-        // contact_list: contactList
+    Contact.find({},function(err,contacts){
+        if(err){
+            console.log('error in fecting contacts from db');
+            return;
+        }
+
+        return response.render('home',{
+            title: " Contacts List ",
+            contact_list: contacts //contacts here refer to the parameter of function above
+        });
     });
 });
 
