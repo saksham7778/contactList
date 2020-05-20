@@ -5,3 +5,5 @@ libraries to install
 
 #npm install ejs (view engine)
 #npm install express-ejs-layouts (for partials and layouts)
+
+#npm install mongoose
