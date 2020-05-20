@@ -16,26 +16,7 @@
         </h1>
 
         <div id="contact_list_container">
-            <ul>
-                <% for(let i of contact_list ){ %>
-                   
-                <li class="contact">
-                    <div class="details">
-                        <%= i.name  %> 
-                        <%= i.phone %>
-                    </div>
-                   
-                    <div class="delete_button">
-                        <!-- <a href="/delete-contact/<%=i.phone%> " > -->
-                        <!-- <a href="/delete-contact/?phone=<%=i.phone%>&name= <%=i.name%> " > -->
-                            <a href="/delete-contact/?phone=<%= i.phone%>"  >
-                                <i class="fas fa-window-close"> </i>
-                            </a>
-                    </div>
-                    
-                </li>
-                <% } %>
-            </ul>
+            
         </div>
 
         <form action="/create-contact" method="POST"  id="form">

@@ -1,7 +1,9 @@
 const express= require('express');
 const port =8000;
 const path = require('path');
+
 const db = require('./config/mongoose')
+const Contact = require('./models/contact')
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -12,58 +14,46 @@ app.use(express.urlencoded());
 //middleware 2  ==> for styling
 app.use(express.static('assets'));
 
-//static kind of database
-var contactList =[
-    {
-        name : 'saksham',
-        phone: '1234567890'
-    },
-
-    {
-        name : 'hello',
-        phone: '1111111111'
-    },
-
-    {
-        name : 'sak',
-        phone: '1231234678'
-    }        
-]
-
-
 
 app.get('/',function(request,response){
 
     // console.log(request.url);
     return response.render('home',{
         title: "Contact List!",
-        contact_list: contactList
+        // contact_list: contactList
     });
 });
 
 app.post('/create-contact',function(request,response){
-    contactList.push({
-        name :request.body.name,
+    Contact.create({
+        name: request.body.name,
         phone:request.body.phone
-    })
-    return response.redirect('back');
+    },function(err,newContact){
+
+        if(err){
+            console.log('error in creating a contact');
+            return;
+        }
+        console.log('********',newContact);
+        return response.redirect('back');
+    });
 });
 
 ///// for deleting a contact 
-app.get('/delete-contact/',function(request,response){
+// app.get('/delete-contact/',function(request,response){
 
-    console.log(request.query);
-    let phone=request.query.phone;
+//     console.log(request.query);
+//     let phone=request.query.phone;
 
-    let contactIndex=contactList.findIndex( (contact) => {
-                                                            return (contact.phone == phone)
-                                                         });
-    if(contactIndex != -1){
-        contactList.splice(contactIndex,1);
-    }
+//     let contactIndex=contactList.findIndex( (contact) => {
+//                                                             return (contact.phone == phone)
+//                                                          });
+//     if(contactIndex != -1){
+//         contactList.splice(contactIndex,1);
+//     }
 
-    return response.redirect('back');
-});
+//     return response.redirect('back');
+// });
 
 
 app.listen(port, function(err){
