@@ -47,20 +47,21 @@ app.post('/create-contact',function(request,response){
 });
 
 ///// for deleting a contact 
-// app.get('/delete-contact/',function(request,response){
+app.get('/delete-contact/',function(request,response){
 
-//     console.log(request.query);
-//     let phone=request.query.phone;
+    console.log(request.query);
+    let id=request.query.id;
 
-//     let contactIndex=contactList.findIndex( (contact) => {
-//                                                             return (contact.phone == phone)
-//                                                          });
-//     if(contactIndex != -1){
-//         contactList.splice(contactIndex,1);
-//     }
+    //find contact in database using id and delete
+    Contact.findByIdAndDelete(id,function(err){
 
-//     return response.redirect('back');
-// });
+        if(err){
+            console.log('error in deleting from db');
+            return;
+        }
+        return response.redirect('back');
+    });
+});
 
 
 app.listen(port, function(err){
