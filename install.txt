@@ -1,0 +1,7 @@
+libraries to install
+
+#npm install express
+#npm install -g nodemon (just for the very first time)
+
+#npm install ejs (view engine)
+#npm install express-ejs-layouts (for partials and layouts)

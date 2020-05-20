@@ -1,0 +1,9 @@
+body{
+    margin:100px;   
+}
+
+.contact .details{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+} 
