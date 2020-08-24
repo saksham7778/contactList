@@ -8,4 +8,4 @@
 
 # GUI
  
-<image src="site.jpg" >
+<image src="site.jpg" height="50%" width="50%" >
