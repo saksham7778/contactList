@@ -1,7 +1,7 @@
 # Contact List
 
-<h1> This is a basic contact list which includes mongoDB as a database, and uses Express.js framework . </h1>
+<h3> This is a basic contact list which includes mongoDB as a database, and uses Express.js framework . </h3>
 
-#To run
+# To run
 
-- node index.js
+* node index.js
