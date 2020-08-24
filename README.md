@@ -8,4 +8,8 @@
 
 # GUI
  
-<image src="site.jpg" height="50%" width="50%" >
+<image src="site.jpg" height="50%" width="50%" 
+  style="display: block;
+         margin-left: auto;
+         margin-right: auto;
+         width: 50%;">
