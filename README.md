@@ -9,7 +9,5 @@
 # GUI
  
 <image src="site.jpg"  
-  style="display: block;
-         margin-left: auto;
-         margin-right: auto;
+  style="height= 50%;
          width: 50%;">
