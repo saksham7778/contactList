@@ -8,6 +8,4 @@
 
 # GUI
  
-<image src="site.jpg"  
-  style="height= 50%;
-         width: 50%;">
+<image src="site.jpg"  height= "60%" width: "60%";>
